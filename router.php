@@ -1,6 +1,5 @@
 <?php
-include_once('app/db.php');
-include_once('app/product.php');
+include_once('app/controllers/product_controller.php');
 //Primero que nada definimos nuestra URL base del proyecto
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -28,7 +27,8 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'listar':
-        showProducts();
+        $controller = new productController();
+        $controller->showProducts();
         break;
     default:
         echo '404 page not found';

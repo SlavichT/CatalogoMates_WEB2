@@ -12,11 +12,23 @@ class productController
 
     public function __construct()
     {
-        //$this -> model = new productModel();
-        //$this ->view = new productView();
+        $this->model = new productModel();
+        $this->view = new productView();
     }
 
-    //Muestra nuestra lista de items
 
-    //public function showProducts() {}
+    //Muestra nuestra lista de items
+    function showProducts()
+    {
+
+
+        //Obtenemos los productos del modelo
+
+        $products = $this->model->getProducts();
+
+
+        //Actualizamos la vista
+
+        $this->view->showProducts($products);
+    }
 }

@@ -4,20 +4,29 @@
 
 class productView
 {
-    // private $ ;
+    function showProducts($products)
+    {
+        include 'templates/header.php';
+?>
 
-    // public function __construct()
-    // {
-    //     
-    // }
+        <ul class="list-group">
+            <?php foreach ($products as $product) { ?>
 
-    //Nos muestra TODOS los items
-    // public function showItems(){
-    //
-    // }
-    //
-    // //Nos muestra UN solo item
+                <li class="list-group-item active" aria-current="true">
+                    <?= $product->id_mate ?>
+                </li>
+                <li class="list-group-item">
+                    <b>Forma del mate:</b> <?= $product->forma_mate ?>
+                </li>
+                <li class="list-group-item">
+                    <b>Tipo de recubrimiento:</b> <?= $product->recubrimiento_mate ?>
+                </li>
 
-    // public function showItem()
-
+            <?php } ?>
+        </ul>
+<?php
+        include 'templates/footer.php';
+    }
 }
+?>
+?>
