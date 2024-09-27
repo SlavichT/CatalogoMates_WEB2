@@ -10,8 +10,8 @@ if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
 
-//Este $params nos parsea cada parte de la url en un elemento independiente de un array (por ejemplo home/item/1)
-//En este caso  nos generara un array en el cual quedaria asi: 
+//Este $params nos parsea cada "campo" de la url en un elemento independiente de un array (por ejemplo home/item/1) donde cada uno sera un elemento.
+//En este caso  nos genera un array el cual queda de la siguiente manera: 
 //  (
 //      [0] => home
 //      [1] => item
@@ -24,7 +24,7 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'home':
-        echo 'Estamos en el home!';
+        echo 'Estamos en el home';
         break;
     default:
         echo '404 page not found';
