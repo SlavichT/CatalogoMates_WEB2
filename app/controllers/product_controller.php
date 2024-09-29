@@ -2,8 +2,8 @@
 include_once('app/models/product_model.php');
 include_once('app/views/product_view.php');
 
-//El controlador "maneja" todo lo que pide el usuario, si el usuario pide ver la lista de items de la pagina, el controlador se lo solicitara al modelo.
-//El controlador interactua con el modelo o con la vista para que estas no se tengan que comunicar entre si.
+//El controlador "maneja" todo lo que pide el usuario, si el usuario pide ver la lista de items de la pagina, el controlador se lo solicitara al modelo
+//El controlador interactua con el modelo o con la vista para que estas no se tengan que comunicar entre si
 
 class productController
 {
@@ -31,4 +31,28 @@ class productController
 
         $this->view->showProducts($products);
     }
+
+
+
+
+    //Mostrar solo UN item en detalle
+    function showProductInDetail($id_mate)
+    {
+
+        $product = $this->model->getProductById($id_mate);
+
+        if ($product) {
+            $this->view->showProductInDetail($product);
+        } else {
+            $this->view->showErrorGeneric("No se encontró el producto correspondiente.");
+        }
+    }
+
+
+
+    // function addProduct($forma_mate, $recubrimiento_mate)
+    // {
+    //     $this->model->addProduct($forma_mate, $recubrimiento_mate);
+    //     $this->showProducts();
+    // }
 }

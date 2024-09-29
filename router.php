@@ -25,10 +25,16 @@ $params = explode('/', $action);
 
 // listar   ->     getProducts(); 
 
+// mostrar  ->      showProductInDetail();
+
 switch ($params[0]) {
     case 'listar':
         $controller = new productController();
         $controller->showProducts();
+        break;
+    case 'mostrar':
+        $controller = new productController();
+        $controller->showProductInDetail($params[1]);
         break;
     default:
         echo '404 page not found';

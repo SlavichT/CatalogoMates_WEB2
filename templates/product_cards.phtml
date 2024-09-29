@@ -1,0 +1,33 @@
+<?php require_once 'templates/header.phtml'; ?>
+<!--TODO ESTA PARTE ESTA DE PRUEBA -->
+<div class="container mt-5">
+    <h1 class="mb-4">Nuestros Productos</h1>
+
+    <div class="row">
+        <?php foreach ($products as $product): ?>
+            <div class="col-md-4">
+                <div class="card mb-4">
+
+                    <div class="card-body">
+                        <img class="img-fluid" src="<?= $product->imagen ?>">
+                        <!-- ID del producto -->
+                        <h5 class="card-title"><?= $product->nombre_mate ?></h5>
+
+                        <!-- Nombre del producto -->
+                        <h5 class="card-title"><?= $product->forma_mate ?></h5>
+
+                        <!-- Descripción del producto -->
+                        <p class="card-text"><?= $product->recubrimiento_mate ?></p>
+
+                        <!-- Botón de detalles -->
+                        <a href="mostrar/<?= $product->id_mate; ?>" class="btn btn-info">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+<!--TODO ESTA PARTE ESTA DE PRUEBA -->
+
+
+<?php require_once 'templates/header.phtml'; ?>
