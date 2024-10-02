@@ -1,1 +1,38 @@
-<h1><?= $product->color_mate ?></h1>
+<?php require_once 'templates/header.phtml'; ?>
+<?php require_once 'templates/header.phtml'; ?>
+<div class="container mt-5 d-flex justify-content-center">
+    <h1 class="mb-4 text-center"></h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mb-4 text-center">
+                <div class="card-body">
+                    <img class="img-fluid mb-3" src="<?= $product->imagen ?>">
+                    <h3 class="card-title"><?= $product->nombre_mate ?></h3>
+                    <h4 class="card-title"><?= $product->forma_mate ?></h4>
+                    <h4 class="card-text"><?= $product->recubrimiento_mate ?></h4>
+                    <h4 class="card-title"><?= $product->color_mate ?></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php require_once 'templates/footer.phtml'; ?>
+<!-- <div class="container mt-5"> -->
+<!-- <h1 class="mb-4">Detalles</h1> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-md-4"> -->
+<!-- <div class="card mb-4"> -->
+<!-- <div class="card-body"> -->
+<!-- <img class="img-fluid" src="<?= $product->imagen ?>"> -->
+<!-- <h5 class="card-title"><?= $product->nombre_mate ?></h5> -->
+<!-- <h5 class="card-title"><?= $product->forma_mate ?></h5> -->
+<!-- <p class="card-text"><?= $product->recubrimiento_mate ?></p> -->
+<!-- <h5 class="card-title"><?= $product->color_mate ?></h5> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!--  -->
+<?php require_once 'templates/footer.phtml'; ?>
