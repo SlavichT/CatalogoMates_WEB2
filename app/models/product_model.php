@@ -44,13 +44,13 @@ class productModel
 
     //Funcion para agregar un nuevo producto
 
-    //function addProduct($forma_mate, $recubrimiento_mate)
-    //{
-    //    $db = $this->connectDB();
+    function addNewProduct($nombre_mate, $forma_mate, $recubrimiento_mate, $imagen, $color_mate, $id_categoria_fk)
+    {
+        $db = $this->connectDB();
 
-    //    $query = $db->prepare('INSERT INTO producto (forma_mate, recubrimiento_mate) VALUES (?, ?)');
-    //    $query->execute([$forma_mate, $recubrimiento_mate]);
-    //    //$id_mate = $db->lastInsertId();
-    //    //return $id_mate;
-    //}
+        $query = $db->prepare("INSERT INTO producto (nombre_mate, forma_mate, recubrimiento_mate, imagen, color_mate, id_categoria_fk) VALUES (?, ?, ?, ?, ?, ?)");
+        $query->execute([$nombre_mate, $forma_mate, $recubrimiento_mate, $imagen, $color_mate, $id_categoria_fk]);
+        $id_mate = $db->lastInsertId();
+        return $id_mate;
+    }
 }

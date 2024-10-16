@@ -36,6 +36,14 @@ switch ($params[0]) {
         $controller = new productController();
         $controller->showProductInDetail($params[1]);
         break;
+    case 'agregar':
+        $controller = new productController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->addProduct();
+        } else {
+            $controller->showAddProductForm();
+        }
+        break;
     default:
         echo '404 page not found';
         break;

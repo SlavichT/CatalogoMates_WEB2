@@ -1,7 +1,6 @@
-<?php require_once 'templates/header.phtml'; ?>
 <div class="container mt-5">
     <h1 class="mb-4">Nuestros Productos</h1>
-
+    <a href="agregar" class="btn btn-success mb-4">Agregar nuevo mate</a>
     <div class="row">
         <?php foreach ($products as $product): ?>
             <div class="col-md-4">
@@ -17,12 +16,13 @@
                         <p class="card-text"><?= $product->recubrimiento_mate ?></p>
 
                         <a href="mostrar/<?= $product->id_mate; ?>" class="btn btn-info">Ver detalles</a>
+                        <a href="mostrar/<?= $product->id_mate; ?>" class="btn btn-info">Editar</a>
+                        <a href="mostrar/<?= $product->id_mate; ?>" class="btn btn-info">Eliminar</a>
+
+
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
 </div>
-
-
-<?php require_once 'templates/footer.phtml'; ?>

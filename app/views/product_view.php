@@ -13,11 +13,22 @@ class productView
 
     function showProductInDetail($product)
     {
+        require_once 'templates/header.phtml';
         require_once 'templates/product_detail.phtml';
+        require_once 'templates/footer.phtml';
+    }
+
+    function showAddProductForm()
+    {
+        require_once 'templates/header.phtml';
+        require_once 'templates/form_new_product.phtml';
+        require_once 'templates/footer.phtml';
     }
 
     function showErrorGeneric($error)
     {
+        require_once 'templates/header.phtml';
         require_once 'templates/show_error.phtml';
+        require_once 'templates/footer.phtml';
     }
 }
