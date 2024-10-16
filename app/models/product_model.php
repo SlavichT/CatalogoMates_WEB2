@@ -4,7 +4,7 @@ class ItemModel {
     private $db;
 
     public function __construct() {
-       $this->db = new PDO('mysql:host=localhost;dbname=db_tareas;charset=utf8', 'root', '');
+       $this->db = new PDO('mysql:host=localhost;dbname=catalogomates;charset=utf8', 'root', '');
     }
  
     public function getItem() {
@@ -12,7 +12,7 @@ class ItemModel {
         $query = $this->db->prepare('SELECT * FROM categorias');
         $query->execute();
     
-        // 3. Obtengo los datos en un arreglo de objetos
+        // 3. Obtengo los datos del arreglo
         $Items = $query->fetchAll(PDO::FETCH_OBJ); 
     
         return $Items;
@@ -26,3 +26,4 @@ class ItemModel {
     
         return $Item;
     }
+}
