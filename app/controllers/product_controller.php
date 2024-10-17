@@ -1,31 +1,30 @@
 <?php
-require_once './app/models/item_model.php';
-require_once './app/views/item_view.php';
+require_once './app/models/product_model.php';
+require_once './app/views/product_view.php';
 
-class ItemControllers {
+class ProductControllers {
     private $model;
     private $view;
 
     public function __construct($res) {
-        $this->model = new ItemModel();
-        $this->view = new ItemView($res->user);
+        $this->model = new ProductModel();
+        $this->view = new ProductView($res->user);
     }
 
-    public function showItem() {
+    public function showProduct() {
         // obtengo los mates de la DB
-        $Items = $this->model->getItems();
+        $Products = $this->model->getProducts();
 
         // mando lo que obtuve a la vista
-        return $this->view->showItems($Items);
+        return $this->view->showProducts($Products);
     }
 
-    public funtion Inicio() {
+    //public funtion Inicio() {
           // redirijo al home 
-          header('Location: ' . BASE_URL);
+    //    header('Location: ' . BASE_URL);
     }
 
 
 
 
 
-}

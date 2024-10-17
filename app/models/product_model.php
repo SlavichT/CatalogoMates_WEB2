@@ -1,29 +1,29 @@
 <?php
 
-class ItemModel {
+class ProductModel {
     private $db;
 
     public function __construct() {
-       $this->db = new PDO('mysql:host=localhost;dbname=catalogomates;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;dbname=catalogomates;charset=utf8', 'root', '');
     }
- 
-    public function getItem() {
+
+    public function getProduct() {
         // 2. Ejecuto la consulta
         $query = $this->db->prepare('SELECT * FROM categorias');
         $query->execute();
     
         // 3. Obtengo los datos del arreglo
-        $Items = $query->fetchAll(PDO::FETCH_OBJ); 
+        $products = $query->fetchAll(PDO::FETCH_OBJ); 
     
-        return $Items;
+        return $products;
     }
- 
-    public function getItems($id) {    
+
+    public function getProducts($id) {    
         $query = $this->db->prepare('SELECT * FROM categorias WHERE id = ?');
         $query->execute([$id]);   
     
-        $Items = $query->fetch(PDO::FETCH_OBJ);
+        $product = $query->fetch(PDO::FETCH_OBJ);
     
-        return $Item;
+        return $product;
     }
 }
