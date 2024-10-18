@@ -4,11 +4,13 @@
         <div class="col-md-6">
             <div class="card mb-4 text-center">
                 <div class="card-body">
-                    <img class="img-fluid mb-3" src="<?= $product->imagen ?>">
                     <h3 class="card-title"><?= $product->nombre_mate ?></h3>
-                    <h4 class="card-title"><?= $product->forma_mate ?></h4>
-                    <h4 class="card-text"><?= $product->recubrimiento_mate ?></h4>
-                    <h4 class="card-title"><?= $product->color_mate ?></h4>
+                    <img class="img-fluid mb-3" src="<?= $product->imagen ?>">
+                    <h5 class="card-title">Tipo de mate: <?= $product->forma_mate ?></h5>
+                    <h5 class="card-text">Recubrimiento: <?= $product->recubrimiento_mate ?></h5>
+                    <h5 class="card-title">Color: <?= $product->color_mate ?></h5>
+                    <h5 class="card-title">Material de fabricacion: <?= $product->material_fabricacion ?></h5>
+
                 </div>
             </div>
         </div>

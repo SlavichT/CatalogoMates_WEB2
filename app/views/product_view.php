@@ -6,7 +6,6 @@ class productView
     function showProducts($products)
     {
         require_once 'templates/header.phtml';
-
         require_once 'templates/product_cards.phtml';
         require_once 'templates/footer.phtml';
     }
@@ -18,10 +17,17 @@ class productView
         require_once 'templates/footer.phtml';
     }
 
-    function showAddProductForm()
+    function showAddProductForm($categorias)
     {
         require_once 'templates/header.phtml';
         require_once 'templates/form_new_product.phtml';
+        require_once 'templates/footer.phtml';
+    }
+
+    function showUpdateProductForm($product, $categorias)
+    {
+        require_once 'templates/header.phtml';
+        require_once 'templates/form_update_product.phtml';
         require_once 'templates/footer.phtml';
     }
 

@@ -10,7 +10,7 @@ class productModel
         return $db;
     }
 
-    //Esta funcion nos trae de la base de datos TODOS nuestros productos
+    //Esta funcion nos trae de la base de datos TODOS nuestros productos junto a sus categorias
     function getProducts()
     {
 
@@ -18,8 +18,11 @@ class productModel
         $db = $this->connectDB();
 
 
-        //Enviamos nuestra consulta correspondiente
-        $query = $db->prepare("SELECT * FROM producto");
+        //Enviamos nuestra consulta correspondiente 
+        // " p. * " = nos trae TODOS los productos de la tabla "producto". 
+        // " c.material_fabricacion " = nos selecciona la columna especifica de la tabla "categoria" (en este caso con la abreviacion " c ")
+        // " ON p.id_categoria_fk = c.id_categoria " = con esto definimos que nuestra columna "id_categoria_fk" es la foreign key de la columna "id_categoria".
+        $query = $db->prepare("SELECT  p.*, c.material_fabricacion  FROM producto p JOIN categoria c ON p.id_categoria_fk = c.id_categoria");
         $query->execute();
 
         //Realizamos un 'fetchAll' para obtener TODOS nuestros productos
@@ -33,7 +36,7 @@ class productModel
     {
         $db = $this->connectDB();
 
-        $query = $db->prepare("SELECT * FROM producto WHERE id_mate = ?");
+        $query = $db->prepare("SELECT  p.*, c.material_fabricacion FROM producto p JOIN categoria c ON p.id_categoria_fk = c.id_categoria WHERE id_mate = ?");
         $query->execute([$id_mate]);
 
         //Realizamos en este caso un 'fetch' ya que solo necesitamos UN solo producto.
@@ -42,7 +45,22 @@ class productModel
         return $product;
     }
 
-    //Funcion para agregar un nuevo producto
+
+    //Productos CON CATEGORIAS
+
+    //Funcion para agregar un nuevo producto 
+
+    //Traemos las categorias 
+
+    function getCategories()
+    {
+        $db = $this->connectDB();
+
+        $query = $db->prepare("SELECT * FROM categoria");
+        $query->execute();
+        $categorias = $query->fetchAll(PDO::FETCH_OBJ);
+        return $categorias;
+    }
 
     function addNewProduct($nombre_mate, $forma_mate, $recubrimiento_mate, $imagen, $color_mate, $id_categoria_fk)
     {
@@ -52,5 +70,26 @@ class productModel
         $query->execute([$nombre_mate, $forma_mate, $recubrimiento_mate, $imagen, $color_mate, $id_categoria_fk]);
         $id_mate = $db->lastInsertId();
         return $id_mate;
+    }
+
+    //Boton ELIMINAR
+
+    function deleteProductById($id_mate)
+    {
+        $db = $this->connectDB();
+
+        $query = $db->prepare("DELETE FROM producto WHERE id_mate = ?");
+        $query->execute([$id_mate]);
+    }
+
+    //Boton EDITAR
+
+    function updateItem($id_mate, $nombre_mate, $forma_mate, $imagen, $recubrimiento_mate, $color_mate, $id_categoria_fk)
+    {
+
+        $db = $this->connectDB();
+
+        $query = $db->prepare("UPDATE producto SET id_categoria_fk = ?, nombre_mate = ?, forma_mate = ?, imagen = ?, recubrimiento_mate = ?, color_mate = ? WHERE id_mate = ?");
+        $query->execute([$id_categoria_fk, $nombre_mate, $forma_mate, $imagen, $recubrimiento_mate, $color_mate, $id_mate]);
     }
 }

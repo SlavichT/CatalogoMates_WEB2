@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2024 a las 01:28:19
+-- Tiempo de generación: 18-10-2024 a las 04:57:38
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -51,9 +51,11 @@ INSERT INTO `categoria` (`id_categoria`, `material_fabricacion`, `descripcion`, 
 
 CREATE TABLE `producto` (
   `id_mate` int(11) NOT NULL,
-  `forma_mate` varchar(50) NOT NULL,
+  `nombre_mate` varchar(255) NOT NULL,
+  `forma_mate` varchar(255) NOT NULL,
   `imagen` varchar(510) NOT NULL,
   `recubrimiento_mate` varchar(50) NOT NULL,
+  `color_mate` varchar(255) NOT NULL,
   `id_categoria_fk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -61,10 +63,11 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id_mate`, `forma_mate`, `imagen`, `recubrimiento_mate`, `id_categoria_fk`) VALUES
-(1, 'Imperial', 'https://acdn.mitiendanube.com/stores/001/143/953/products/img_9368-4370cd752e2375a44516987629639789-1024-1024.jpeg', 'Cuero natural', 1),
-(2, 'Camionero', 'https://acdn.mitiendanube.com/stores/001/143/953/products/img_9408_jpg-13761fffbc16ea759f16987625852661-1024-1024.jpeg', 'Cuero natural', 2),
-(3, 'Torpedo', 'https://d22fxaf9t8d39k.cloudfront.net/72983f3d39e53faf34a2726246593c56ed407d98fa97e9e668df616e424438e143999.png', 'Cuero sintetico', 3);
+INSERT INTO `producto` (`id_mate`, `nombre_mate`, `forma_mate`, `imagen`, `recubrimiento_mate`, `color_mate`, `id_categoria_fk`) VALUES
+(1, 'Mate champiñon', 'Imperial', 'https://acdn.mitiendanube.com/stores/001/143/953/products/img_9368-4370cd752e2375a44516987629639789-1024-1024.jpeg', 'Cuero natural', 'negro', 1),
+(3, 'Mate provinciano', 'Torpedo', 'https://acdn.mitiendanube.com/stores/001/143/953/products/img_9376_jpg-a11ecf50788d52680716987627000158-1024-1024.webp', 'Cuero sintetico', 'azul', 3),
+(5, 'Mate escuirol', 'Imperial', 'https://acdn.mitiendanube.com/stores/001/143/953/products/img_9368-4370cd752e2375a44516987629639789-1024-1024.jpeg', 'Cuero natural', 'marron', 2),
+(12, 'Mate calavera', 'Torpedo', 'https://acdn.mitiendanube.com/stores/942/536/products/calavera11-1ca3f197da940d247116187157038750-1024-1024.webp', 'Cuero natural', 'Negro', 2);
 
 --
 -- Índices para tablas volcadas
@@ -97,7 +100,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_mate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_mate` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas

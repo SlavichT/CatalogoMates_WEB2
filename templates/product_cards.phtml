@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <h1 class="mb-4">Nuestros Productos</h1>
+    <h1 class="mb-4">Productos</h1>
     <a href="agregar" class="btn btn-success mb-4">Agregar nuevo mate</a>
     <div class="row">
         <?php foreach ($products as $product): ?>
@@ -7,17 +7,19 @@
                 <div class="card mb-4">
 
                     <div class="card-body">
+                        <h3 class="card-title"><?= $product->nombre_mate ?></h3>
+
                         <img class="img-fluid" src="<?= $product->imagen ?>">
 
-                        <h5 class="card-title"><?= $product->nombre_mate ?></h5>
+                        <h3 class="card-title">Tipo del mate: <?= $product->forma_mate ?></h3>
 
-                        <h5 class="card-title"><?= $product->forma_mate ?></h5>
+                        <h3 class="card-title">Material de fabricacion: <?= $product->material_fabricacion ?></h3>
 
-                        <p class="card-text"><?= $product->recubrimiento_mate ?></p>
+
 
                         <a href="mostrar/<?= $product->id_mate; ?>" class="btn btn-info">Ver detalles</a>
-                        <a href="mostrar/<?= $product->id_mate; ?>" class="btn btn-info">Editar</a>
-                        <a href="mostrar/<?= $product->id_mate; ?>" class="btn btn-info">Eliminar</a>
+                        <a href="editar/<?= $product->id_mate; ?>" class="btn btn-info">Editar</a>
+                        <a href="eliminar/<?= $product->id_mate; ?>" class="btn btn-info">Eliminar</a>
 
 
                     </div>

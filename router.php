@@ -11,21 +11,14 @@ if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
 
-//Este $params nos parsea cada "campo" de la url en un elemento independiente de un array (por ejemplo home/item/1) donde cada uno sera un elemento.
+//Este $params nos parsea cada "campo" de la url en un elemento independiente de un array (por ejemplo mostrar/1) donde cada uno sera un elemento.
 //En este caso  nos genera un array el cual queda de la siguiente manera: 
 //  (
-//      [0] => home
+//      [0] => mostrar
 //      [1] => item
-//      [2] => 1
 //  )
 
 $params = explode('/', $action);
-
-//Definimos nuestra tabla de ruteo
-
-// listar   ->     getProducts(); 
-
-// mostrar  ->      showProductInDetail();
 
 switch ($params[0]) {
     case 'listar':
@@ -42,6 +35,18 @@ switch ($params[0]) {
             $controller->addProduct();
         } else {
             $controller->showAddProductForm();
+        }
+        break;
+    case 'eliminar':
+        $controller = new productController();
+        $controller->deleteProduct($params[1]);
+        break;
+    case 'editar':
+        $controller = new productController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->updateProduct($params[1]);
+        } else {
+            $controller->showUpdateProductForm($params[1]);
         }
         break;
     default:
