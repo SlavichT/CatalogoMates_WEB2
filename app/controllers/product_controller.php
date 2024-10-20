@@ -7,7 +7,7 @@ class ProductController {
     private $view;
 
     public function __construct($res) {
-        $this->model = new ProductModel();
+        $this->model = new Productmodel();
         $this->view = new ProductView($res->user);
     }
 
@@ -33,14 +33,16 @@ class ProductController {
         }
 
         //inserto la categoria
-        $id = $this->model->insertCategoria($categoria);
+        id = $this->model->addCategoria($categoria);
 
         //redirigimos al listado
-        header("location:")
+        header("location:");
     }
-    //public funtion Inicio() {
-          // redirijo al home 
-    //    header('Location: ' . BASE_URL);
+    
+    function showError ($msg) {
+        echo "<h1>ERROR!</h1>";
+        echo "<h2>$msg</h2>";
+    }
     }
 
 

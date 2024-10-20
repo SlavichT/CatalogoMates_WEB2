@@ -11,9 +11,10 @@ define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'
 $res = new Response();
 
 //Este $action nos sirve para determinar cual sera la acción por defecto si no se envia nada
-$action = 'listar';
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
+} else {
+    $action = 'listar';
 }
 
 //Este $params nos parsea cada parte de la url en un elemento independiente de un array (por ejemplo home/item/1)
@@ -33,6 +34,19 @@ switch ($params[0]) {
     case 'listar':
         $controller = new ProductController($res);
         $controller->showCategoria();
+        break;
+    case 'insertar':
+        $controller = new ProductController();
+        $controller->addCategoria();   
+        break; 
+    case 'eliminar':
+        $controller = new ProductController();    
+        $id = $params[1];
+        $controller->eliminarCategoria($id);
+        break;
+    default:
+        header("HTTP/1.0 404 Not Found");
+        echo('404 page not found');
         break;
 }
 

@@ -3,11 +3,11 @@
 class ProductView {
     private $user = null;
 
-    public function __construct($user) {
+    function __construct($user) {
         $this->user = $user;
     }
 
-    public function showCategoria($categoria) {
+    function showCategoria($categoria) {
         // la vista define una nueva variable con la cantida de tareas
         $count = count($categoria);
 
@@ -16,7 +16,7 @@ class ProductView {
     }
 
     public function showError($error) {
+
         require 'templates/error.phtml';
     }
-
 }
