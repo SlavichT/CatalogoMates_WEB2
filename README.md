@@ -58,7 +58,7 @@ Se debe tener instalado XAMPP.
 
 **`2`** Iniciamos **Apache** y **MySQL** presionando el boton **"Start"**.
 
-![alt text](phpmyadminDB.png)
+![alt text](xamppControlPanel.png)
 
 **`3`** Con **Apache** y **MySQL** ya levantados nos dirigimos a la siguiente URL **`localhost/phpmyadmin`**.
 
