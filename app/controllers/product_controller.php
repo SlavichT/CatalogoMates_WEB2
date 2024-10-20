@@ -6,7 +6,7 @@ class ProductController {
     private $model;
     private $view;
 
-    public function __construct($res) {
+    function __construct($res) {
         $this->model = new Productmodel();
         $this->view = new ProductView($res->user);
     }
@@ -31,13 +31,27 @@ class ProductController {
             $this->view->showError('faltan datos obligatorios');
             die();
         }
-
         //inserto la categoria
-        id = $this->model->addCategoria($categoria);
+        $id = $this->model->addCategoria($categoria);
 
         //redirigimos al listado
-        header("location:");
+        header("location:" . BASE_URL);
+        }
+
+    function deletecategoria($id) {
+        // obtengo la tarea por id
+        $categoria = $this->model->getcategoria($id);
+    
+        if (!$categoria) {
+            return $this->view->showError("No existe la tarea con el id=$id");
+        }
+    
+        // borro la categoria y redirijo
+        $this->model->erasecategoria($id);
+    
+        header('Location: ' . BASE_URL);
     }
+    
     
     function showError ($msg) {
         echo "<h1>ERROR!</h1>";

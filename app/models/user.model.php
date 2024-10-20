@@ -14,5 +14,5 @@ class UserModel {
 //        $user = $query->fetch(PDO::FETCH_OBJ);
     
 //        return $user;
-/7    }
+//    }
 }
