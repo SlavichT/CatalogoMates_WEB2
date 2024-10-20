@@ -31,8 +31,8 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'listar':
-        $controller = new ProductControllers($res);
-        $controller->showProduct();
+        $controller = new ProductController($res);
+        $controller->showCategoria();
         break;
 }
 
