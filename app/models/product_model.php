@@ -13,10 +13,7 @@ class productModel
     //Esta funcion nos trae de la base de datos TODOS nuestros productos junto a sus categorias
     function getProducts()
     {
-
-        //Abrimos la conexion con nuestra base de datos
         $db = $this->connectDB();
-
 
         //Enviamos nuestra consulta correspondiente 
         // " p. * " = nos trae TODOS los productos de la tabla "producto". 
@@ -26,7 +23,6 @@ class productModel
         $query->execute();
 
         //Realizamos un 'fetchAll' para obtener TODOS nuestros productos
-
         $products = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $products;

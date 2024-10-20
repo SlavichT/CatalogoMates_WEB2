@@ -8,6 +8,7 @@ require_once('app/controllers/auth_controller.php');
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 session_start();
+
 //Este $action nos sirve para determinar cual sera la acción por defecto si no se envia nada
 $action = 'listar';
 if (!empty($_GET['action'])) {

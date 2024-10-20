@@ -37,3 +37,33 @@ Nuestras tablas estan planteadas en una relacion 1 a N (Un **"PRODUCTO"** puede 
 **Diagrama**
 
 ![Catalogo de mates](https://github.com/user-attachments/assets/d293fbcd-16c5-42fa-a70d-f15c6babddf8)
+
+# TPE 2024 - Segunda parte
+
+**Datos para la cuenta de administrador**
+
+**`Usuario`**: webadmin
+
+**`Password`**: admin
+
+**Pasos para desplegar la db**
+
+**Requisitos**
+
+Se debe tener instalado XAMPP.
+
+**Pasos a seguir para importar la db**
+
+**`1`** Abrimos XAMPP.
+
+**`2`** Iniciamos **Apache** y **MySQL** presionando el boton **"Start"**.
+
+![alt text](image-1.png)
+
+**`3`** Con **Apache** y **MySQL** ya levantados nos dirigimos a la siguiente URL **`localhost/phpmyadmin`**.
+
+**`4`** Creamos una base de datos vacia con el nombre **catalogomates** e importamos nuestro archivo **`catalogomates.sql`**.
+
+Realizando estos pasos ya tendremos nuestra base de datos importada y completamente funcional.
+
+![alt text](phpmyadminDB.png)

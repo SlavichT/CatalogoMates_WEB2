@@ -25,16 +25,11 @@ class productController
 
 
     //Muestra nuestra lista de items
+
     public function showProducts()
     {
-
-
-        //Obtenemos los productos del modelo
-
         $products = $this->model->getProducts();
 
-
-        //Actualizamos la vista
         $this->view->showProducts($products);
     }
 
@@ -55,6 +50,7 @@ class productController
     }
 
     // Añadir nuevo producto
+    // Nos muestra la plantilla de añadir el producto
     public function showAddProductForm()
     {
         authHelper::verify();
@@ -68,6 +64,7 @@ class productController
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             return $this->showAddProductForm();
         }
+
         //Verificamos que TODOS los campos esten llenos y no vacios
         if (!isset($_POST['nombre_mate']) || empty($_POST['nombre_mate'])) {
             return $this->view->showErrorGeneric('Falta completar el nombre del mate');
@@ -87,7 +84,6 @@ class productController
         if (!isset($_POST['id_categoria_fk']) || empty($_POST['id_categoria_fk'])) {
             return $this->view->showErrorGeneric('Falta seleccionar una categoria para el mate');
         }
-        //Verificamos que TODOS los campos esten llenos y no vacios
 
 
         $nombre_mate = $_POST['nombre_mate'];
@@ -155,7 +151,6 @@ class productController
         if (!isset($_POST['id_categoria_fk']) || empty($_POST['id_categoria_fk'])) {
             return $this->view->showErrorGeneric('Falta seleccionar una categoria para el mate');
         }
-        //Verificamos que TODOS los campos esten llenos y no vacios
 
         $nombre_mate = $_POST['nombre_mate'];
         $forma_mate = $_POST['forma_mate'];

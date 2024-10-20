@@ -38,10 +38,9 @@ class authController
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        //Verificamos el usuario
+
 
         //Tenemos como usuario : webadmin y su contraseña admin (en este caso hasheada = $2y$10$.WoEuCMaMPTfNhJmqba.yeseGNBtlL8wIPcix0BGg3sUbimlBhety)
-
         //Traemos el user del model
 
         $userDB = $this->model->getUserByUsername($username);

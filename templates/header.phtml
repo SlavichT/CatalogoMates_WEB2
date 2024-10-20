@@ -17,7 +17,7 @@
             <a class="navbar-brand text-white " href="">ChampiMates</a>
             <div class="d-flex">
                 <?php if (!empty($this->username)): ?>
-                    <span class="navbar-text text-white me-3"><?= $this->username ?></span>
+                    <span class="navbar-text text-white me-3">Usuario: <?= $this->username ?></span>
                 <?php else: ?>
                     <a href="showLogin" class="btn btn-primary text-white me-3">Iniciar sesion</a>
                 <?php endif ?>
@@ -39,10 +39,6 @@
 
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link text-white " href="asdih">Test error</a>
-
-                    </li>
 
                     <?php if (isset($_SESSION['USER_NAME'])) { ?>
                         <li class="nav-item">
