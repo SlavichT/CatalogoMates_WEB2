@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <?php if ($error): ?>
+        <div class='alert alert-danger' role='alert'>
+            <?= $error ?>
+        </div>
+    <?php endif ?>
+
+    <h1 class="mb-4">Iniciar sesión</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form action="login" method="POST">
+
+                        <div class="mb-3">
+
+                            <label for="username" class="form-label">Nombre de usuario</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-success">Iniciar sesión</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

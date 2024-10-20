@@ -3,6 +3,13 @@
 
 class productView
 {
+    private $username;
+
+    function __construct($username)
+    {
+        $this->username = $username;
+    }
+
     function showProducts($products)
     {
         require_once 'templates/header.phtml';

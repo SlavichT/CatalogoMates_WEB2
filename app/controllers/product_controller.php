@@ -1,7 +1,9 @@
 <?php
-include_once('app/models/product_model.php');
-include_once('app/views/product_view.php');
-include_once('app/models/category_model.php');
+
+require_once('app/models/product_model.php');
+require_once('app/views/product_view.php');
+require_once('app/models/category_model.php');
+require_once('app/helpers/auth_helper.php');
 
 
 //El controlador "maneja" todo lo que pide el usuario, si el usuario pide ver la lista de items de la pagina, el controlador se lo solicitara al modelo
@@ -16,8 +18,9 @@ class productController
     public function __construct()
     {
         $this->model = new productModel();
-        $this->view = new productView();
         $this->categoryModel = new categoryModel();
+        $username = authHelper::getUsername();
+        $this->view = new productView($username);
     }
 
 
@@ -32,7 +35,6 @@ class productController
 
 
         //Actualizamos la vista
-
         $this->view->showProducts($products);
     }
 
@@ -52,15 +54,20 @@ class productController
         }
     }
 
-    //NUEVO PRODUCTO
+    // Añadir nuevo producto
     public function showAddProductForm()
     {
+        authHelper::verify();
         $categorias = $this->categoryModel->getCategories();
         $this->view->showAddProductForm($categorias);
     }
 
     public function addProduct()
     {
+        authHelper::verify();
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            return $this->showAddProductForm();
+        }
         //Verificamos que TODOS los campos esten llenos y no vacios
         if (!isset($_POST['nombre_mate']) || empty($_POST['nombre_mate'])) {
             return $this->view->showErrorGeneric('Falta completar el nombre del mate');
@@ -97,6 +104,7 @@ class productController
 
     public function deleteProduct($id_mate)
     {
+        authHelper::verify();
         $product = $this->model->getProductById($id_mate);
 
         if (!$product) {
@@ -110,6 +118,7 @@ class productController
 
     public function showUpdateProductForm($id_mate)
     {
+        authHelper::verify();
         $product = $this->model->getProductById($id_mate);
         $categorias = $this->categoryModel->getCategories();
 
@@ -122,6 +131,11 @@ class productController
 
     public function updateProduct($id_mate)
     {
+        authHelper::verify();
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            return $this->showUpdateProductForm($id_mate);
+        }
+
         //Verificamos que TODOS los campos esten llenos y no vacios
         if (!isset($_POST['nombre_mate']) || empty($_POST['nombre_mate'])) {
             return $this->view->showErrorGeneric('Falta completar el nombre del mate');

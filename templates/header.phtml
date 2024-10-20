@@ -7,27 +7,49 @@
     <title>ChampiMates</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <base href="<?= BASE_URL ?>">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="">ChampiMates</a>
+            <a class="navbar-brand text-white " href="">ChampiMates</a>
+            <div class="d-flex">
+                <?php if (!empty($this->username)): ?>
+                    <span class="navbar-text text-white me-3"><?= $this->username ?></span>
+                <?php else: ?>
+                    <a href="showLogin" class="btn btn-primary text-white me-3">Iniciar sesion</a>
+                <?php endif ?>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Categorias</a>
+                        <a class="nav-link text-white " href="#">Categorias</a>
+
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="listar">Productos</a>
+                        <a class="nav-link text-white " href="listar">Productos</a>
+
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="asdih">Test error</a>
+                        <a class="nav-link text-white " href="asdih">Test error</a>
+
                     </li>
+
+                    <?php if (isset($_SESSION['USER_NAME'])) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-white " href="logout">Logout</a>
+                        </li>
+                    <?php } ?>
+
                 </ul>
             </div>
         </div>
