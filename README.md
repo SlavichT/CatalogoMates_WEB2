@@ -62,7 +62,7 @@ Se debe tener instalado XAMPP.
 
 **`3`** Con **Apache** y **MySQL** ya levantados nos dirigimos a la siguiente URL **`localhost/phpmyadmin`**.
 
-**`4`** Creamos una base de datos vacia con el nombre **catalogomates** e importamos nuestro archivo **`catalogomates.sql`**.
+**`4`** Importamos nuestro archivo **`catalogomates.sql`** y automaticamente se creará la DB.
 
 Realizando estos pasos ya tendremos nuestra base de datos importada y completamente funcional.
 
